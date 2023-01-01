@@ -18,3 +18,5 @@ User Permissions
  - Some data in your web app might be confidential and must be only revewaled to vertain users.
  - Not all users should have permission to perform CRUID
 
+- Lookup
+  - [`icontains`](https://www.w3schools.com/django/ref_lookups_icontains.php)
