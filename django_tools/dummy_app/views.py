@@ -6,6 +6,13 @@ from django.core.paginator import Paginator
 def anime_list(request):
   anime_objects = Anime.objects.all()
 
+  # Search and filter
+
+  anime_name = request.GET.get('anime_name')
+
+  if anime_name != '' and anime_name is not None:
+    anime_objects = anime_objects.filter(name__icontains=anime_name)
+
   # Paginator instance
   paginator = Paginator(anime_objects,3)
 
