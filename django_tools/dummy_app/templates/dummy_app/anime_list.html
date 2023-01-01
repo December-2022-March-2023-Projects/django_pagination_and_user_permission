@@ -1,3 +1,22 @@
 {% for anime_item in anime_objects %}
   {{ anime_item.name }}
+</br>
 {% endfor %}
+
+<!-- Check if anime object has a previous object -->
+
+{% if anime_objects.has_previous %}
+  <a href="?page=1">First</a>
+  <a href="?page={{ anime_objects.previous_page_number }}">Previous</a>
+{% endif %}
+
+<!-- Current page -->
+
+Page: {{ anime_objects.number }} of {{ anime_objects.paginator.num_pages }}
+
+<!-- Does the object have an item next to it -->
+
+{% if anime_objects.has_next %}
+  <a href="?page={{ anime_objects.next_page_number }}">Next</a>
+  <a href="?page={{ anime_objects.paginator.num_pages }}">Last</a>
+{% endif %}
